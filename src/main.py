@@ -34,3 +34,6 @@ def cli() -> argparse.ArgumentParser:
 
     return parser
 
+if __name__ == "__main__":
+    main()
+
