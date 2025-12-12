@@ -1,0 +1,7 @@
+colorama==0.4.6
+docx-mailmerge==0.5.0
+docx2pdf==0.1.8
+lxml==6.0.2
+PyPDF2==3.0.1
+pywin32==311
+tqdm==4.67.1
