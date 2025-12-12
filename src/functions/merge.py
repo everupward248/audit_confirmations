@@ -13,24 +13,24 @@ def confirmation_drafts() -> None:
     
     """
 
-output_dir = output_path()
-csv_file = csv_path()
-template = template_path()
+    output_dir = output_path()
+    csv_file = csv_path()
+    template = template_path()
 
-# obtain the merge fields so that the fields can be supplied via kwargs unpacking
-merge_fields = obtain_merge_fields(template)
+    # obtain the merge fields so that the fields can be supplied via kwargs unpacking
+    merge_fields = obtain_merge_fields(template)
 
-# ensure that the encoding parameter is set, otherwise the respondent column will be truncated
-with open(csv_file, newline="", encoding="utf-8-sig") as confirmation_data:
-    reader = csv.DictReader(confirmation_data)
+    # ensure that the encoding parameter is set, otherwise the respondent column will be truncated
+    with open(csv_file, newline="", encoding="utf-8-sig") as confirmation_data:
+        reader = csv.DictReader(confirmation_data)
 
-    for row in reader:
-        # initialize a dictionary based off of the merge fields of the template to unpack and map the csv data to the template
-        merge_dict = {field.strip(): row.get(field.strip(), '') for field in merge_fields}
+        for row in reader:
+            # initialize a dictionary based off of the merge fields of the template to unpack and map the csv data to the template
+            merge_dict = {field.strip(): row.get(field.strip(), '') for field in merge_fields}
 
-        with MailMerge(template) as document:
-            document.merge(**merge_dict)
-            document.write(f"{output_dir}/Confirmation-Draft-{row['entity']}-{row['respondent']}.docx")
+            with MailMerge(template) as document:
+                document.merge(**merge_dict)
+                document.write(f"{output_dir}/Confirmation-Draft-{row['entity']}-{row['respondent']}.docx")
 
 def obtain_merge_fields(template):
     with MailMerge(template) as document:
