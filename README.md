@@ -12,5 +12,5 @@ This program is a CLI used in the drafting of external confirmation requests to 
 2. The file path containing the word drafts is passed as argument and all files in that directory are converted to pdf.
 3. The file path containing the pdf drafts is passed as argument and all files which end in the same respondent suffix are merged into one pdf file
 
-### Depencies
+### Dependencies
 The mail merge is performed using `mailmerge`, the conversion to pdf using `docx2pdf`, and the consolidation of the pdf files using `PyPDF2`
