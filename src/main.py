@@ -22,7 +22,7 @@ def cli() -> argparse.ArgumentParser:
 
     """
 
-    # intitialize the argumen parser
+    # intitialize the argument parser
     parser = argparse.ArgumentParser(
         prog="confirmation_drafter", 
         description="CLI program which automates the drafting of confirmation via mailmerge, conversion to pdf, and consolidation of pdfs by respondent"
